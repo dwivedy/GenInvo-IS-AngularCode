@@ -1,0 +1,49 @@
+<div class="container">
+  <h2>Create Shop</h2>
+<form [formGroup]="shopGroup" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label for="exampleInputEmail1">Shop Name</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter shop name" formControlName="shopName">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Category </label>
+    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Enter category " formControlName="category">
+  </div>
+
+  <div class="form-group">
+      <label for="exampleInputPassword1">Address</label>
+      <input type="text" class="form-control" id="exampleInputPassword1" placeholder=" Enter address" formControlName="address">
+    </div>
+
+    <div class="form-group">
+        <label for="exampleInputPassword1">Owner name </label>
+        <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Enter Owner name " formControlName="ownerName">
+      </div>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+</div>
+
+<div class="container" *ngIf="!done">
+  <mat-spinner></mat-spinner>
+</div>
+<div class="container" *ngIf="done">
+  <table>
+    <thead>
+        <th>Shop Name</th>
+        <th>Category</th>
+        <th>Shop Owner</th>
+        <th>Latitude</th>
+        <th>Longitude</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let shop of shopList">
+            <td>{{shop.shopName}}</td>
+            <td>{{shop.category}}</td>
+            <td>{{shop.ownerName}}</td>
+            <td>{{shop.lat}}</td>
+            <td>{{shop.longt}}</td>
+        </tr>
+    </tbody>
+</table>
+</div>
